@@ -29,13 +29,13 @@ public class QuizActivity extends AppCompatActivity {
             new Question(R.string.question_bcn,false),
             new Question(R.string.question_mad,true),
             new Question(R.string.question_cas,false),
-            new Question(R.string.question_rab,false),
+            new Question(R.string.question_rab,true),
             new Question(R.string.question_nan,false),
-            new Question(R.string.question_par,false)
+            new Question(R.string.question_par,true)
     };
 
-    private HashMap<String,Boolean> questions = new HashMap<>();
     private int first_time = 1;
+    private int numQuestion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,34 +49,27 @@ public class QuizActivity extends AppCompatActivity {
 
 
         if (first_time == 1){
-            questions.put("",false);
-            questions.put("",true);
-            questions.put("",false);
-            questions.put("",true);
-            questions.put("",false);
-            questions.put("",true);
+            Random r = new Random();
 
-            String randomQuestion = setNextQuestion();
-            tvQuestion.setText(randomQuestion);
+            numQuestion = r.nextInt(mQuestions.length - 1);
+            setNextQuestion(numQuestion);
             first_time++;
         }
-
-
-
 
 
         mTrueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                if (questions.get(tvQuestion.getText())){
+                if (mQuestions[numQuestion].isAnswer()){
                     Toast.makeText(QuizActivity.this,R.string.correct_toast,Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(QuizActivity.this,R.string.wrong_toast,Toast.LENGTH_SHORT).show();
                 }
 
-                String randomQuestion = setNextQuestion();
-                tvQuestion.setText(randomQuestion);
+                Random r = new Random();
+                numQuestion = r.nextInt(mQuestions.length-1);
+                setNextQuestion(numQuestion);
 
             }
         });
@@ -85,27 +78,24 @@ public class QuizActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if (!questions.get(tvQuestion.getText())){
+                if (!mQuestions[numQuestion].isAnswer()){
                     Toast.makeText(QuizActivity.this,R.string.correct_toast,Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(QuizActivity.this,R.string.wrong_toast,Toast.LENGTH_SHORT).show();
                 }
 
-                String randomQuestion = setNextQuestion();
-                tvQuestion.setText(randomQuestion);
+                Random r = new Random();
+                int numQuestion = r.nextInt(mQuestions.length-1);
+                setNextQuestion(numQuestion);
             }
         });
 
     }
 
-    public String setNextQuestion(){
-        List<String> keys = new ArrayList<>(questions.keySet());
-        Random r = new Random();
-        String randomQuestion = keys.get(r.nextInt(keys.size()));
-
-        return randomQuestion;
+    public void setNextQuestion(int nextNumber){
 
 
+        tvQuestion.setText(mQuestions[nextNumber].getmTextResId());
 
     }
 

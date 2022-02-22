@@ -10,12 +10,11 @@ public class Question {
         this.answer = answer;
     }
 
-
-    public int getQuestion() {
+    public int getmTextResId() {
         return mTextResId;
     }
 
-    public void setQuestion(int mTextResId) {
+    public void setmTextResId(int mTextResId) {
         this.mTextResId = mTextResId;
     }
 
