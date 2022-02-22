@@ -2,6 +2,7 @@ package com.example.ddm1_geoquiz.Controller;
 
 import android.os.Bundle;
 
+import com.example.ddm1_geoquiz.Model.Question;
 import com.example.ddm1_geoquiz.R;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,6 +24,16 @@ public class QuizActivity extends AppCompatActivity {
     private Button mFalseButton;
     private TextView tvQuestion;
 
+
+    private Question[] mQuestions = new Question[]{
+            new Question(R.string.question_bcn,false),
+            new Question(R.string.question_mad,true),
+            new Question(R.string.question_cas,false),
+            new Question(R.string.question_rab,false),
+            new Question(R.string.question_nan,false),
+            new Question(R.string.question_par,false)
+    };
+
     private HashMap<String,Boolean> questions = new HashMap<>();
     private int first_time = 1;
 
@@ -38,12 +49,12 @@ public class QuizActivity extends AppCompatActivity {
 
 
         if (first_time == 1){
-            questions.put("Barcelona is the capital of Spain",false);
-            questions.put("Madrid is the capital of Spain",true);
-            questions.put("Casablanca is the capital of Morrocco",false);
-            questions.put("Rabat is the capital of Morocco",true);
-            questions.put("Nantes is the capital of France",false);
-            questions.put("Paris is the capital of France",true);
+            questions.put("",false);
+            questions.put("",true);
+            questions.put("",false);
+            questions.put("",true);
+            questions.put("",false);
+            questions.put("",true);
 
             String randomQuestion = setNextQuestion();
             tvQuestion.setText(randomQuestion);

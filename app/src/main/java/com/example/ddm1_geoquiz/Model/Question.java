@@ -2,21 +2,21 @@ package com.example.ddm1_geoquiz.Model;
 
 public class Question {
 
-    private String question;
+    private int mTextResId;
     private boolean answer;
 
-    public Question(String question, boolean answer) {
-        this.question = question;
+    public Question(int mTextResId, boolean answer) {
+        this.mTextResId = mTextResId;
         this.answer = answer;
     }
 
 
-    public String getQuestion() {
-        return question;
+    public int getQuestion() {
+        return mTextResId;
     }
 
-    public void setQuestion(String question) {
-        this.question = question;
+    public void setQuestion(int mTextResId) {
+        this.mTextResId = mTextResId;
     }
 
     public boolean isAnswer() {

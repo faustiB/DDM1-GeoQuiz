@@ -6,5 +6,11 @@
     <string name="false_button">False</string>
     <string name="correct_toast">Correct!</string>
     <string name="wrong_toast">Wrong...</string>
+    <string name="question_bcn">Barcelona is the capital of Spain</string>
+    <string name="question_mad">Madrid is the capital of Spain</string>
+    <string name="question_cas">Casablanca is the capital of Morocco</string>
+    <string name="question_rab">Rabat is the capital of Morocco</string>
+    <string name="question_nan">Nantes is the capital of France</string>
+    <string name="question_par">Paris is the capital of France</string>
 </resources>
 
