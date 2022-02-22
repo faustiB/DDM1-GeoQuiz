@@ -1,33 +1,23 @@
-package com.example.ddm1_geoquiz;
+package com.example.ddm1_geoquiz.Controller;
 
 import android.os.Bundle;
 
-import com.google.android.material.snackbar.Snackbar;
+import com.example.ddm1_geoquiz.R;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
 
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-
-import com.example.ddm1_geoquiz.databinding.ActivityMainBinding;
-
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Hashtable;
 import java.util.List;
 import java.util.Random;
 
-public class MainActivity extends AppCompatActivity {
+public class QuizActivity extends AppCompatActivity {
 
     private Button mTrueButton;
     private Button mFalseButton;
@@ -69,9 +59,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 if (questions.get(tvQuestion.getText())){
-                    Toast.makeText(MainActivity.this,R.string.correct_toast,Toast.LENGTH_SHORT).show();
+                    Toast.makeText(QuizActivity.this,R.string.correct_toast,Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(MainActivity.this,R.string.wrong_toast,Toast.LENGTH_SHORT).show();
+                    Toast.makeText(QuizActivity.this,R.string.wrong_toast,Toast.LENGTH_SHORT).show();
                 }
 
                 String randomQuestion = setNextQuestion();
@@ -85,9 +75,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 if (!questions.get(tvQuestion.getText())){
-                    Toast.makeText(MainActivity.this,R.string.correct_toast,Toast.LENGTH_SHORT).show();
+                    Toast.makeText(QuizActivity.this,R.string.correct_toast,Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(MainActivity.this,R.string.wrong_toast,Toast.LENGTH_SHORT).show();
+                    Toast.makeText(QuizActivity.this,R.string.wrong_toast,Toast.LENGTH_SHORT).show();
                 }
 
                 String randomQuestion = setNextQuestion();
